@@ -1,0 +1,159 @@
+/* Hilangkan icon password bawaan Edge / Chrome */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+display: none;
+}
+
+/* Chrome */
+input[type="password"]::-webkit-credentials-auto-fill-button {
+visibility: hidden;
+display: none !important;
+pointer-events: none;
+}
+
+.role-input{
+position:relative;
+}
+
+.role-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.role-item span {
+  font-size: 14px;
+  color: #2ecc71;
+  margin-left: 8px;
+}
+
+.role-btn{
+position:absolute;
+right:10px;
+top:10px;
+border:none;
+background:none;
+font-size:20px;
+cursor:pointer;
+}
+
+.role-dropdown{
+position:absolute;
+top:60px;
+right:0;
+background:white;
+border-radius:10px;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+padding:10px;
+z-index:10;
+}
+
+.role-dropdown div{
+padding:8px 12px;
+cursor:pointer;
+border-radius:6px;
+}
+
+.role-dropdown div:hover{
+background:#f3f4f6;
+}
+
+.password-hint{
+font-size:12px;
+margin-top:4px;
+display:block;
+}
+
+.password-hint.wrong{
+color:red;
+margin-top: -18px;
+}
+
+.password-hint.correct{
+color: green;
+margin-top: -18px;
+}
+
+.terms{
+display:flex;
+gap:10px;
+font-size:13px;
+}
+
+.terms a{
+color:#2a7be4;
+text-decoration:none;
+font-weight:500;
+}
+
+.terms a:hover{
+text-decoration:underline;
+}
+
+.token-hint{
+font-size:12px;
+margin-top:4px;
+display:block;
+}
+
+.token-hint.wrong{
+color:red;
+font-size:12px;
+margin-top:4px;
+}
+
+.token-hint.correct{
+color:green;
+font-size:12px;
+margin-top:4px;
+}
+
+/* ERROR POPUP */
+.error-popup {
+  position: fixed;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-20px);
+  background: #4b5563;
+  color: white;
+  padding: 14px 24px;
+  border-radius: 14px;
+  font-size: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  animation: smoothDrop 0.3s ease forwards, fadeOut 0.5s ease 2.5s forwards;
+  z-index: 999;
+  opacity: 0;
+}
+
+/* SUCCESS POPUP */
+.success-popup {
+  position: fixed;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-20px);
+  background: #16a34a;
+  color: white;
+  padding: 14px 24px;
+  border-radius: 14px;
+  font-size: 14px;
+  box-shadow: 0 10px 30px rgba(22, 163, 74, 0.3);
+  animation: smoothDrop 0.3s ease forwards, fadeOut 0.5s ease 2s forwards;
+  z-index: 999;
+  opacity: 0;
+}
+
+@keyframes smoothDrop {
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}
