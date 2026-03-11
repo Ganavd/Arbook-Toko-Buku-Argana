@@ -28,7 +28,7 @@ function Signin() {
   const [success, setSuccess] = useState("");
 
   useEffect(() => {
-  document.title = "Daftar Akun Arbook | Arganabook Accounts";
+    document.title = "Daftar Akun Arbook | Arganabook Accounts";
   }, []);
 
   /* CLOSE DROPDOWN SAAT KLIK LUAR */

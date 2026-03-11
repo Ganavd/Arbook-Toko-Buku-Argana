@@ -1,12 +1,3 @@
-// ============================================================
-// Dashcashier.jsx — Versi Final
-// ✅ Validasi duplikat produk (nama sama tidak bisa masuk)
-// ✅ Validasi harga & stok tidak boleh negatif / nol
-// ✅ Konfirmasi hapus pakai modal (bukan alert bawaan)
-// ✅ Semua notifikasi pakai error-popup / success-popup
-// ✅ Komentar TEST CASE untuk latihan ujian
-// ============================================================
-
 import { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
