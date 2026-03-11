@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
 /* Hilangkan icon password bawaan Edge / Chrome */
 input[type="password"]::-ms-reveal,
 input[type="password"]::-ms-clear { display: none; }
@@ -20,16 +22,17 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
 /* ── CARD FORM ── */
 .login-form {
   background: #ffffff;
-  padding: 40px 44px;
+  padding: 44px 52px;
   border-radius: 20px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
   width: 100%;
-  max-width: 480px;
-  min-width: 480px;
+  max-width: 560px;
+  min-width: 560px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   gap: 16px;
+  font-family: 'Poppins', sans-serif;
 }
 
 .login-form h2 {
@@ -38,6 +41,7 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
   font-weight: 800;
   color: #111827;
   margin-bottom: 4px;
+  font-family: 'Poppins', sans-serif;
 }
 
 /* ── FLOATING INPUT ── */
@@ -51,6 +55,7 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
   padding: 22px 16px 10px 16px;
   border: 2px solid #d1d5db;
   border-radius: 14px;
+  font-family: 'Poppins', sans-serif;
   font-size: 15px;
   outline: none;
   transition: 0.25s ease;
@@ -64,6 +69,7 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
   left: 16px;
   top: 18px;
   font-size: 14px;
+  font-family: 'Poppins', sans-serif;
   color: #9ca3af;
   pointer-events: none;
   transition: 0.2s ease all;

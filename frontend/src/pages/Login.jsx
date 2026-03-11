@@ -57,6 +57,7 @@ function Login({ onLogin }) {
         <div className="input-group">
           <input
             type="text"
+            placeholder=" "
             required
             value={username}
             onChange={(e) => setUsername(e.target.value)}
@@ -67,6 +68,7 @@ function Login({ onLogin }) {
         <div className="input-group password-input-group">
           <input
             type={showPassword ? "text" : "password"}
+            placeholder=" "
             required
             value={password}
             onChange={(e) => setPassword(e.target.value)}
