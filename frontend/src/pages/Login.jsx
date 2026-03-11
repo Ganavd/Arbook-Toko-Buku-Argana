@@ -97,8 +97,8 @@ function Login({ onLogin }) {
         <div className="copyright">
           © 2026 Teamvd Arganabook
           <br />
-          <a href="mailto:arganavd@gmail.com" className="copyright-email">
-            arganavd@gmail.com
+          <a href="mailto:arganavd9@gmail.com" className="copyright-email">
+            arganavd9@gmail.com
           </a>
         </div>
       </form>
