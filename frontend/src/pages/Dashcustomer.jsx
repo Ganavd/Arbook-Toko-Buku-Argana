@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
 import Header from "../components/Header";
 import { useDiscounts } from "../store/discountStore";
-import ProductModal from "../components/ProductModal";
+import ProductModal from "../components/Productmodal";
 import "./Dashcustomer.css";
 
 function Dashboard() {

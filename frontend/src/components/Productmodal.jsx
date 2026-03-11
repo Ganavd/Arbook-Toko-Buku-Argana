@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
-import "./ProductModal.css";
+import "./Productmodal.css";
 
 // Dipanggil dari Dashcustomer dengan:
 // <ProductModal product={selectedProduct} mode="detail"|"cart" onClose={() => setSelectedProduct(null)} />
