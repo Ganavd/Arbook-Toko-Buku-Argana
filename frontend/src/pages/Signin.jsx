@@ -133,13 +133,12 @@ function Signin() {
   };
 
   return (
-    <div className="register-container">
+    <div className="login-container">
       {error && <div className="error-popup">{error}</div>}
       {success && <div className="success-popup">{success}</div>}
 
-      <form className="register-form" onSubmit={handleRegister} noValidate>
+      <form className="login-form" onSubmit={handleRegister} noValidate>
         <h2>Daftar Akun Arbook</h2>
-
         {/* USERNAME */}
         <div className="input-group role-input" ref={roleRef}>
           <input
@@ -181,7 +180,6 @@ function Signin() {
             </div>
           )}
         </div>
-
         {/* EMAIL */}
         <div className="input-group">
           <input
@@ -196,7 +194,6 @@ function Signin() {
 
           <label>Email (opsional)</label>
         </div>
-
         {/* PASSWORD */}
         <div className="input-group password-input-group">
           <input
@@ -219,7 +216,6 @@ function Signin() {
             {showPassword ? "📖" : "📕"}
           </button>
         </div>
-
         {/* CONFIRM PASSWORD */}
         <div className="input-group password-input-group">
           <input
@@ -239,12 +235,10 @@ function Signin() {
             {showConfirmPassword ? "📖" : "📕"}
           </button>
         </div>
-
         <small className={`password-hint ${passwordStatus}`}>
           {passwordStatus === "wrong" && "*password salah"}
           {passwordStatus === "correct" && "*password benar"}
         </small>
-
         {/* TOKEN */}
         {(role === "admin" || role === "cashier") && (
           <div className="input-group">
@@ -264,7 +258,6 @@ function Signin() {
             </small>
           </div>
         )}
-
         {/* TERMS */}
         {role === "customer" && (
           <div className="terms">
@@ -283,15 +276,13 @@ function Signin() {
             </span>
           </div>
         )}
-
         <button type="submit">Daftar</button>
-
         <div className="register-text">
           Sudah punya akun?
           <span onClick={() => navigate("/login")}> Masuk</span>
         </div>
         <div className="copyright">
-          © 2026 Teamvd Arganabook
+          © 2026 Team Arganabook
           <br />
           <a href="mailto:arganavd@gmail.com" className="copyright-email">
             arganavd@gmail.com
