@@ -6,7 +6,9 @@ function ProductCard({
   originalPrice,
   category,
   image,
+  stock,
   discount,
+  onClick,
 }) {
   const hasDiscount = discount && discount.percent > 0;
   const discountedPrice = hasDiscount
@@ -16,9 +18,36 @@ function ProductCard({
   const formatRp = (val) =>
     "Rp" + Number(val).toLocaleString("id-ID", { maximumFractionDigits: 0 });
 
+  const handleBuyClick = (e) => {
+    e.stopPropagation();
+    onClick?.({
+      title,
+      description,
+      originalPrice,
+      category,
+      image,
+      stock,
+      discount,
+      mode: "cart",
+    });
+  };
+
   return (
-    <div className="product-card">
-      {/* Cover */}
+    <div
+      className="product-card"
+      onClick={() =>
+        onClick?.({
+          title,
+          description,
+          originalPrice,
+          category,
+          image,
+          stock,
+          discount,
+          mode: "detail",
+        })
+      }
+    >
       <div className="card-cover-wrap">
         {hasDiscount && <span className="card-badge">{discount.percent}%</span>}
         <div className="card-frame">
@@ -43,16 +72,12 @@ function ProductCard({
         </div>
       </div>
 
-      {/* Info */}
       <div className="card-info">
-        {/* Teks atas: kategori, judul, deskripsi */}
         <div className="card-info-top">
           {category && <span className="card-category">{category}</span>}
           <h3 className="card-title">{title}</h3>
           {description && <p className="card-description">{description}</p>}
         </div>
-
-        {/* Bawah: harga + tombol — selalu di bawah */}
         <div className="card-info-bottom">
           <div className="card-price-section">
             {hasDiscount ? (
@@ -68,7 +93,9 @@ function ProductCard({
               <span className="card-price">{formatRp(originalPrice)}</span>
             )}
           </div>
-          <button className="buy-btn">Beli Sekarang</button>
+          <button className="buy-btn" onClick={handleBuyClick}>
+            Beli Sekarang
+          </button>
         </div>
       </div>
     </div>

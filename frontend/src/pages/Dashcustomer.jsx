@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
 import Header from "../components/Header";
 import { useDiscounts } from "../store/discountStore";
+import ProductModal from "../components/ProductModal";
 import "./Dashcustomer.css";
 
 function Dashboard() {
@@ -15,6 +16,7 @@ function Dashboard() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [activeCategory, setActiveCategory] = useState("Semua");
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   const [showProfile, setShowProfile] = useState(false);
   const [showCategory, setShowCategory] = useState(false);
@@ -167,16 +169,24 @@ function Dashboard() {
               >
                 <ProductCard
                   title={product.title}
+                  description={product.description}
                   category={product.category}
                   originalPrice={product.price}
                   image={product.image}
+                  stock={product.stock}
                   discount={getDiscount(product.id)}
+                  onClick={(p) => setSelectedProduct(p)}
                 />
               </div>
             ))}
           </div>
         )}
       </main>
+      <ProductModal
+        product={selectedProduct}
+        mode={selectedProduct?.mode}
+        onClose={() => setSelectedProduct(null)}
+      />
     </div>
   );
 }

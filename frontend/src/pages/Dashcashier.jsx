@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
 import Header from "../components/Header";
 import { useDiscounts } from "../store/discountStore";
+// import ProductModal from "../components/ProductModal"; // detail
 import "./Dashcashier.css";
 
 function Dashcashier() {
@@ -22,7 +23,9 @@ function Dashcashier() {
 
   const [showModal, setShowModal] = useState(false);
   const [modalMode, setModalMode] = useState("add");
-  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [selectedProduct, setSelectedProduct] = useState(null); // untuk CRUD edit
+
+  // const [previewProduct, setPreviewProduct] = useState(null); // untuk modal detail tab lihat
 
   const [formData, setFormData] = useState({
     name_product: "",
@@ -98,14 +101,12 @@ function Dashcashier() {
     fetchCategories();
   }, []);
 
-  // Filter untuk tab kelola (semua produk termasuk nonaktif)
   const filteredProducts = products.filter(
     (p) =>
       p.title?.toLowerCase().includes(searchQuery.toLowerCase()) ||
       p.category?.toLowerCase().includes(searchQuery.toLowerCase()),
   );
 
-  // Filter untuk tab lihat (hanya produk aktif, sama seperti customer)
   const categoryList = [
     "Semua",
     ...Array.from(
@@ -332,10 +333,9 @@ function Dashcashier() {
             </>
           )}
 
-          {/* ── TAB LIHAT (sama seperti customer) ── */}
+          {/* ── TAB LIHAT ── */}
           {activeTab === "lihat" && (
             <>
-              {/* Category filter */}
               {!loading && categoryList.length > 1 && (
                 <div className="category-tabs">
                   {categoryList.map((cat) => (
@@ -392,7 +392,9 @@ function Dashcashier() {
                         originalPrice={product.price}
                         category={product.category}
                         image={product.image}
+                        stock={product.stock}
                         discount={getDiscount(product.id)}
+                        // onClick={(p) => setPreviewProduct(p)} // buka kalau mau aktifkan modal detail
                       />
                     </div>
                   ))}
@@ -403,7 +405,7 @@ function Dashcashier() {
         </div>
       </main>
 
-      {/* ── MODAL ── */}
+      {/* ── MODAL CRUD (tambah/edit produk) ── */}
       {showModal && (
         <div className="modal-overlay" onClick={() => setShowModal(false)}>
           <div className="modal-box" onClick={(e) => e.stopPropagation()}>
@@ -479,6 +481,13 @@ function Dashcashier() {
           </div>
         </div>
       )}
+
+      {/* ── MODAL DETAIL PRODUK (tab lihat) — buka jika pakai ──
+      <ProductModal
+        product={previewProduct}
+        onClose={() => setPreviewProduct(null)}
+      />
+      */}
     </div>
   );
 }
