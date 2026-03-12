@@ -1,6 +1,7 @@
 import "./ProductCard.css";
 
 function ProductCard({
+  id,
   title,
   description,
   originalPrice,
@@ -20,16 +21,17 @@ function ProductCard({
 
   const handleBuyClick = (e) => {
     e.stopPropagation();
-    onClick?.({
-      title,
-      description,
-      originalPrice,
-      category,
-      image,
-      stock,
-      discount,
-      mode: "cart",
-    });
+      onClick?.({
+        id,
+        title,
+        description,
+        originalPrice,
+        category,
+        image,
+        stock,
+        discount,
+        mode: "cart",
+      });
   };
 
   return (
@@ -37,6 +39,7 @@ function ProductCard({
       className="product-card"
       onClick={() =>
         onClick?.({
+          id,
           title,
           description,
           originalPrice,

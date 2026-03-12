@@ -175,6 +175,7 @@ function Dashboard() {
               >
                 <ProductCard
                   title={product.title}
+                  id={product.id}
                   description={product.description}
                   category={
                     product.category === "Dasar" ? "Sejarah" : product.category
